@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   utils_3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 10:13:21 by vparlak           #+#    #+#             */
-/*   Updated: 2023/05/08 18:51:51 by vparlak          ###   ########.fr       */
+/*   Created: 2023/05/11 14:17:35 by vparlak           #+#    #+#             */
+/*   Updated: 2023/05/11 14:25:20 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+void	bastir(t_stack *stack)
 {
-	char	**str_list;
+	t_stack	*iter;
 
-	if (argc > 1)
+	iter = stack;
+	while (!(iter == NULL))
 	{
-		str_list = add_to_list(argc, argv);
-		if (!is_int_list(str_list))
-			error_case("Error", 0);
-		else if (!is_duplicate(str_list))
-			error_case("Error", 0);
-		printf("Argüman Geçerli Sıralamaya Başla\n");
+		printf("%d\n", iter->data);
+		iter = iter->next;
 	}
-	return (0);
 }
