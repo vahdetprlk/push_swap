@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:55:11 by vparlak           #+#    #+#             */
-/*   Updated: 2023/05/11 15:08:38 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/05/13 01:00:38 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,34 @@ typedef struct s_stack
 
 char	**add_to_list(int argc, char **argv);
 
+size_t	ft_stacksize(t_stack *stack);
+
 int		is_int_item(char *item);
 int		is_int_list(char **list);
 int		is_duplicate(char **list);
-int		pop(t_stack *stack);
+int		pop(t_stack **stack);
 
 t_stack	*ft_stacknew(int data);
 t_stack	*ft_stacklast(t_stack *stack);
-t_stack	*init_stack_a(t_stack *stack_a, char **list);
 
-
+void	init_stack_a(t_stack **a, char **list);
 void	error_case(char *msg, int status);
 void	bastir(t_stack *stack);
-void	push(t_stack *stack, int data);
+void	push(t_stack **stack, int data);
+void	push_init(t_stack **stack, int data);
+void	sa(t_stack **a);
+void	sb(t_stack **b);
+void	ss(t_stack **a, t_stack **b);
+void	swap_top(t_stack **stack);
+void	pa(t_stack **a, t_stack**b);
+void	pb(t_stack **a, t_stack**b);
+void	rotate(t_stack **stack);
+void	ra(t_stack **a);
+void	rb(t_stack **b);
+void	rr(t_stack **a, t_stack **b);
+void	rotate_reverse(t_stack **stack);
+void	rra(t_stack **a);
+void	rrb(t_stack **b);
+void	rrr(t_stack **a, t_stack **b);
 
 #endif
