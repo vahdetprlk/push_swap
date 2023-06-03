@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 09:00:34 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/02 23:27:34 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/03 15:56:06 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,14 @@ int	main(int argc, char *argv[])
 			error_case("Error", 0);
 		init_stack_a(&a, str_list);
 		print_stack(a);
-		sort(&a, &b);
+		sort_three(&a);
 		print_stack(a);
 
+
+
+		/* 3 lü sıralama
+		sıralı mı değil mi
+		 */
 		/* buraya free fonksiyonları gelecek bu free
 		fonksiyonları stackin daha önce free bırakılıp bırakılmadığını
 		kontol ederek eğer allocated memory varsa free bırakacak */

@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:55:11 by vparlak           #+#    #+#             */
-/*   Updated: 2023/05/27 23:47:41 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/03 15:46:25 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,17 @@ typedef struct s_stack
 
 char	**add_to_list(int argc, char **argv);
 
-size_t	ft_stacksize(t_stack *stack);
-
 int		is_int_item(char *item);
 int		is_int_list(char **list);
 int		is_duplicate(char **list);
 int		pop(t_stack **stack);
+int		is_sorted(t_stack **stack);
+int		find_min(t_stack **stack);
 
 t_stack	*ft_stacknew(int data);
 t_stack	*ft_stacklast(t_stack *stack);
 
+size_t	ft_stacksize(t_stack *stack);
 
 void	init_stack_a(t_stack **a, char **list);
 void	error_case(char *msg, int status);
@@ -52,6 +53,6 @@ void	rotate_reverse(t_stack **stack);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
-void	sort(t_stack **stack_a, t_stack **stack_b);
+void	sort_three(t_stack **stack);
 
 #endif
