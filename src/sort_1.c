@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   sort_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:56:40 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/03 16:48:02 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/03 22:47:18 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,30 @@ void	sort_three(t_stack **stack)
 			rra(stack);
 			sa(stack);
 		}
+	}
+}
+
+void	sort(t_stack **a, t_stack **b)
+{
+	size_t	size;
+
+	size = ft_stacksize(*a);
+	if (!is_sorted(a))
+	{
+		if (size == 2)
+			sa(a);
+		else if (size == 3)
+			sort_three(a);
+		else
+			sort_a(a, b);
+	}
+}
+
+void	sort_a(t_stack **a, t_stack **b)
+{
+	if (!is_sorted(a))
+	{
+		print_stack(*b);
+		find_middle(a);
 	}
 }

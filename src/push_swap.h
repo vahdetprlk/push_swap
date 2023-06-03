@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:55:11 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/03 15:46:25 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/03 22:15:11 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		is_duplicate(char **list);
 int		pop(t_stack **stack);
 int		is_sorted(t_stack **stack);
 int		find_min(t_stack **stack);
+int		find_middle(t_stack **stack);
 
 t_stack	*ft_stacknew(int data);
 t_stack	*ft_stacklast(t_stack *stack);
@@ -54,5 +55,8 @@ void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 void	sort_three(t_stack **stack);
+void	sort(t_stack **a, t_stack **b);
+void	sort_a(t_stack **a, t_stack **b);
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 09:00:34 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/03 16:52:16 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/03 21:48:58 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,7 @@ int	main(int argc, char *argv[])
 		else if (!is_duplicate(str_list))
 			error_case("Error", 0);
 		init_stack_a(&a, str_list);
-		sort_three(&a);
-
-
-
-
+		sort(&a, &b);
 		/* 3 lü sıralama
 		sıralı mı değil mi
 		 */
