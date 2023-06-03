@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 09:00:34 by vparlak           #+#    #+#             */
-/*   Updated: 2023/05/13 01:24:02 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/02 23:27:34 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,41 +28,13 @@ int	main(int argc, char *argv[])
 		else if (!is_duplicate(str_list))
 			error_case("Error", 0);
 		init_stack_a(&a, str_list);
-		printf("---\n");
-		bastir(a);
-		printf("---\n");
-		pb(&a, &b);
-		pb(&a, &b);
-		pb(&a, &b);
-		printf("---\n");
-		bastir(a);
-		printf("---\n");
-		rra(&a);
-		printf("---\n");
-		bastir(a);
-		printf("---\n");
-		printf("---\n");
-		bastir(b);
-		printf("---\n");
-		rrb(&b);
-		printf("---\n");
-		bastir(b);
-		printf("---\n");
-		rrr(&a, &b);
-		printf("---\n");
-		bastir(a);
-		printf("---\n");
-		printf("---\n");
-		bastir(b);
-		printf("---\n");
-		rr(&a, &b);
-		printf("---\n");
-		bastir(a);
-		printf("---\n");
-		printf("---\n");
-		bastir(b);
-		printf("---\n");
-		free(a);
+		print_stack(a);
+		sort(&a, &b);
+		print_stack(a);
+
+		/* buraya free fonksiyonları gelecek bu free
+		fonksiyonları stackin daha önce free bırakılıp bırakılmadığını
+		kontol ederek eğer allocated memory varsa free bırakacak */
 	}
 	return (0);
 }

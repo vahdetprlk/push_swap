@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:17:35 by vparlak           #+#    #+#             */
-/*   Updated: 2023/05/12 18:04:46 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/05/13 01:34:49 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ size_t	ft_stacksize(t_stack *stack)
 	return (n);
 }
 
-void	bastir(t_stack *stack)
+void	print_stack(t_stack *stack)
 {
 	t_stack	*iter;
 

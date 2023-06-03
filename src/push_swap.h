@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:55:11 by vparlak           #+#    #+#             */
-/*   Updated: 2023/05/13 01:00:38 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/05/27 23:47:41 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ int		pop(t_stack **stack);
 t_stack	*ft_stacknew(int data);
 t_stack	*ft_stacklast(t_stack *stack);
 
+
 void	init_stack_a(t_stack **a, char **list);
 void	error_case(char *msg, int status);
-void	bastir(t_stack *stack);
+void	print_stack(t_stack *stack);
 void	push(t_stack **stack, int data);
 void	push_init(t_stack **stack, int data);
 void	sa(t_stack **a);
@@ -51,5 +52,6 @@ void	rotate_reverse(t_stack **stack);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
+void	sort(t_stack **stack_a, t_stack **stack_b);
 
 #endif
