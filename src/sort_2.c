@@ -6,11 +6,73 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 22:12:52 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/04 00:09:02 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/04 12:33:23 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	find_min(t_stack **stack)
+{
+	t_stack	*iter;
+	int		min;
+
+	iter = *stack;
+	min = iter->data;
+	while (iter->next)
+	{
+		if (iter->next->data < min)
+			min = iter->next->data;
+		iter = iter->next;
+	}
+	return (min);
+}
+
+int	is_sorted(t_stack **stack)
+{
+	t_stack	*iter;
+
+	if (stack)
+	{
+		iter = *stack;
+		while (iter->next)
+		{
+			if (iter->data < iter->next->data)
+				return (0);
+			iter = iter->next;
+		}
+		return (1);
+	}
+	return (0);
+}
+
+void	sort_three(t_stack **stack)
+{
+	if (!is_sorted(stack))
+	{
+		if (find_min(stack) == (*stack)->next->data
+			&& (*stack)->data < ft_stacklast(*stack)->data)
+			ra(stack);
+		if (find_min(stack) == (*stack)->next->data
+			&& (*stack)->data > ft_stacklast(*stack)->data)
+			sa(stack);
+		if (find_min(stack) == (*stack)->data
+			&& (*stack)->next->data > ft_stacklast(*stack)->data)
+			rra(stack);
+		if (find_min(stack) == (*stack)->data
+			&& (*stack)->next->data < ft_stacklast(*stack)->data)
+		{
+			ra(stack);
+			sa(stack);
+		}
+		if (find_min(stack) == ft_stacklast(*stack)->data
+			&& (*stack)->data < (*stack)->next->data)
+		{
+			rra(stack);
+			sa(stack);
+		}
+	}
+}
 
 void	bubble_sort(t_stack **stack)
 {
@@ -38,10 +100,13 @@ void	bubble_sort(t_stack **stack)
 
 int	find_middle(t_stack **stack)
 {
-	size_t	count;
+	int		rvalue;
+	int		i;
+	int		size;
 	t_stack	*iter;
 	t_stack	*tmp;
 
+	i = 0;
 	tmp = NULL;
 	iter = *stack;
 	while (iter != NULL)
@@ -50,7 +115,13 @@ int	find_middle(t_stack **stack)
 		iter = iter->next;
 	}
 	bubble_sort(&tmp);
-	iter = stack;
-		ortadaki sayıyı bul kaçıncı indexte hesapla kaçıncı indexteki hangi sayı ise o ortanca sayının int değeridir
-	return (1);
+	iter = tmp;
+	size = (int)ft_stacksize(tmp) / 2;
+	while (i < size)
+	{
+		iter = iter->next;
+		i++;
+	}
+	rvalue = iter->data;
+	return (rvalue);
 }
