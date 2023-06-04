@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:55:11 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/04 17:32:57 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/04 18:50:19 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		is_int_item(char *item);
 int		is_int_list(char **list);
 int		is_duplicate(char **list);
 int		pop(t_stack **stack);
-int		is_sorted(t_stack **stack);
+int		is_sorted(t_stack **stack, char flag);
 int		find_min(t_stack **stack);
 int		find_middle(t_stack **stack);
 
@@ -54,8 +54,9 @@ void	rotate_reverse(t_stack **stack);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
-void	sort_three(t_stack **stack);
-void	sort(t_stack **a, t_stack **b);
+void	sort_three(t_stack **stack, char flag);
+void	sort_a(t_stack **a, t_stack **b);
+void	sort_b(t_stack **a, t_stack **b);
 void	divide(t_stack **a, t_stack **b);
 void	pre_divide(t_stack **a, int pivot);
 

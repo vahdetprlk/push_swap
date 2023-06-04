@@ -6,26 +6,50 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:56:40 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/04 17:40:07 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/04 18:51:21 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort(t_stack **a, t_stack **b)
+void	sort_a(t_stack **a, t_stack **b)
 {
 	int	size;
 
 	size = (int)ft_stacksize(*a);
-	if (!is_sorted(a))
+	if (!is_sorted(a, 'a'))
 	{
 		if (size == 2)
 			sa(a);
 		else if (size == 3)
-			sort_three(a);
+			sort_three(a, 'a'); // eğer sadece a'yı sıralamak için gerekirse düzenle
 		else
 			divide(a, b);
+		sort_a(a, b);
+		sort_b(a, b);
 	}
+}
+
+void	sort_b(t_stack **a, t_stack **b)
+{
+	int		size;
+	t_stack	*iter;
+
+	size = (int)ft_stacksize(*b);
+	iter = *b;
+	if (!is_sorted(b, 'b'))
+	{
+		if (size == 2)
+			sb(b);
+		else if (size == 3)
+			sort_three(b, 'b'); // eğer sadece a'yı sıralamak için gerekirse düzenle
+	}
+	while (iter)
+	{
+		pa(a, b);
+		iter = iter->next;
+	}
+	sort_a(a, b);
 }
 
 void	pre_divide(t_stack **a, int pivot)

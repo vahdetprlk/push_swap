@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 22:12:52 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/04 12:33:23 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/04 18:49:55 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	find_min(t_stack **stack)
 	return (min);
 }
 
-int	is_sorted(t_stack **stack)
+int	is_sorted(t_stack **stack, char flag)
 {
 	t_stack	*iter;
 
@@ -37,7 +37,8 @@ int	is_sorted(t_stack **stack)
 		iter = *stack;
 		while (iter->next)
 		{
-			if (iter->data < iter->next->data)
+			if ((iter->data < iter->next->data && flag == 'a')
+				|| (iter->data > iter->next->data && flag == 'b'))
 				return (0);
 			iter = iter->next;
 		}
@@ -46,9 +47,9 @@ int	is_sorted(t_stack **stack)
 	return (0);
 }
 
-void	sort_three(t_stack **stack)
+void	sort_three(t_stack **stack, char flag)
 {
-	if (!is_sorted(stack))
+	if (!is_sorted(stack, flag)) // tahminen burası sadece a yı sıralarken lazım olacak
 	{
 		if (find_min(stack) == (*stack)->next->data
 			&& (*stack)->data < ft_stacklast(*stack)->data)
