@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 22:12:52 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/04 18:49:55 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/04 21:01:43 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	is_sorted(t_stack **stack, char flag)
 
 void	sort_three(t_stack **stack, char flag)
 {
-	if (!is_sorted(stack, flag)) // tahminen burası sadece a yı sıralarken lazım olacak
+	if (!is_sorted(stack, flag))
 	{
 		if (find_min(stack) == (*stack)->next->data
 			&& (*stack)->data < ft_stacklast(*stack)->data)
