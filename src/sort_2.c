@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 22:12:52 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/04 21:01:43 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/05 17:46:15 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	is_sorted(t_stack **stack, char flag)
 {
 	t_stack	*iter;
 
-	if (stack)
+	if (*stack != NULL)
 	{
 		iter = *stack;
 		while (iter->next)
@@ -47,7 +47,7 @@ int	is_sorted(t_stack **stack, char flag)
 	return (0);
 }
 
-void	sort_three(t_stack **stack, char flag)
+void	sort_three_a(t_stack **stack, char flag)
 {
 	if (!is_sorted(stack, flag))
 	{

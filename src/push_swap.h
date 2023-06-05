@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:55:11 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/04 18:50:19 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/05 15:26:24 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,11 @@ void	rotate_reverse(t_stack **stack);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
-void	sort_three(t_stack **stack, char flag);
+void	sort_three_a(t_stack **stack, char flag);
+void	sort_three_b(t_stack **stack, char flag);
 void	sort_a(t_stack **a, t_stack **b);
-void	sort_b(t_stack **a, t_stack **b);
-void	divide(t_stack **a, t_stack **b);
-void	pre_divide(t_stack **a, int pivot);
+void	sort_b(t_stack **b, t_stack **a);
+void	divide_a(t_stack **a, t_stack **b);
+void	divide_b(t_stack **b, t_stack **a);
 
 #endif
