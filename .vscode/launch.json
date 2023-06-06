@@ -1,20 +1,32 @@
 {
-	// Use IntelliSense to learn about possible attributes.
-	// Hover to view descriptions of existing attributes.
-	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-	"version": "0.2.0",
-	"configurations": [
-	{
-		"name": "(lldb) build",
-		"type": "cppdbg",
-		"request": "launch",
-		"program": "${workspaceFolder}/push_swap",
-		"args": ["0 8 9 7 6 5 1 2 3"],
-		"stopAtEntry": false,
-		"cwd": "${fileDirname}",
-		"environment": [],
-		"externalConsole": false,
-		"MIMode": "lldb"
-	}
-	]
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(lldb) build",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/push_swap",
+            "args": [
+                "40 79 24 93 48 15 98 84 76 16 75 92 18 66 77 89 31 10 19 86 61 72 8 1 35 6 11 64 21 83 59 81 46 9 57 28 78 47 50 97 33 3 52 58 67 85 4 60 27 51 87 2 68 82 63 65 44 42 96 32 45 39 30 99 5 56 69 91 74 94 95 55 36 29 26 23 88 71 34 17 90 38 54 14 70 25 37 73 12 62 53 41 43 7 80 49 13 20 22"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
+        },
+        {
+            "name": "C/C++: gcc etkin dosyayı derle ve dosyada hata ayıkla",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "C/C++: gcc etkin dosyayı derle"
+        }
+    ]
 }

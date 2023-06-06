@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:56:40 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/05 21:41:35 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/06 16:05:36 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@ void	sort_a(t_stack **a, t_stack **b)
 		else if (size_a == 3)
 		{
 			sort_three_a(a, 'a');
-			sort_b(b, a);
 		}
 		else
 			divide_a(a, b);
+		printf("---**\n");
+		print_stack(*b);
+		printf("---**\n");
 		sort_a(a, b);
 	}
-	sort_b(b ,a);
 }
 
 void	sort_b(t_stack **b, t_stack **a)
@@ -55,12 +56,6 @@ void	sort_b(t_stack **b, t_stack **a)
 		}
 		else
 			divide_b(b, a);
-		sort_b(b, a);
-	}
- 	while (0 < size)
-	{
-		pa(a, b);
-		size--;
 	}
 }
 
