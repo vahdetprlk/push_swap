@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:56:40 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/06 16:05:36 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/07 00:14:33 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	sort_a(t_stack **a, t_stack **b)
 {
 	int	size_a;
-	int	size_b;
+	int count;
 
+	count = 0;
 	size_a = (int)ft_stacksize(*a);
-	size_b = (int)ft_stacksize(*b);
 	if (size_a && !is_sorted(a, 'a'))
 	{
 		if (size_a == 2)
@@ -28,15 +28,19 @@ void	sort_a(t_stack **a, t_stack **b)
 			sort_three_a(a, 'a');
 		}
 		else
-			divide_a(a, b);
-		printf("---**\n");
+			count = divide_a(a, b);
+		printf("AA\n");
+		print_stack(*a);
+		printf("AA\n");
+		printf("BBBB\n");
 		print_stack(*b);
-		printf("---**\n");
+		printf("BBBB\n");
 		sort_a(a, b);
+		sort_b(b, a, count);
 	}
 }
 
-void	sort_b(t_stack **b, t_stack **a)
+void	sort_b(t_stack **b, t_stack **a, int count)
 {
 	int	size;
 
@@ -46,26 +50,28 @@ void	sort_b(t_stack **b, t_stack **a)
 		if (size == 2)
 			sb(b);
 		else if (size == 3)
-		{
 			sort_three_b(b, 'b');
-			while (0 < size)
-			{
-				pa(a, b);
-				size--;
-			}
-		}
 		else
 			divide_b(b, a);
+		sort_a(a, b);
+		sort_b(b, a, count);
+	}
+	while (count > 0)
+	{
+		pa(a, b);
+		count--;
 	}
 }
 
-void	divide_a(t_stack **a, t_stack **b)
+int	divide_a(t_stack **a, t_stack **b)
 {
 	int		pivot;
 	int		tmp;
 	int		count;
+	int		ccount;
 
 	tmp = 0;
+	ccount = 0;
 	count = 0;
 	pivot = find_middle(a);
 	count = (int)ft_stacksize(*a);
@@ -73,10 +79,14 @@ void	divide_a(t_stack **a, t_stack **b)
 	{
 		tmp = ft_stacklast(*a)->data;
 		if (pivot > tmp)
+		{
 			pb(a, b);
+			ccount++;
+		}
 		else
 			ra(a);
 	}
+	return (ccount);
 }
 
 void	divide_b(t_stack **b, t_stack **a)
@@ -92,7 +102,7 @@ void	divide_b(t_stack **b, t_stack **a)
 	while (count--)
 	{
 		tmp = ft_stacklast(*b)->data;
-		if (pivot > tmp)
+		if (pivot < tmp)
 			pa(a, b);
 		else
 			rb(b);
