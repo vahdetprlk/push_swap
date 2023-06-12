@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:15:52 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/04 15:27:49 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/11 19:39:14 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_stack	*ft_stacknew(int data)
 		return (NULL);
 	new_stack->data = data;
 	new_stack->next = NULL;
+	new_stack->prev = NULL;
 	return (new_stack);
 }
 
@@ -35,10 +36,16 @@ t_stack	*ft_stacklast(t_stack *stack)
 
 void	push(t_stack **stack, int data)
 {
+	t_stack	*tmp;
+
 	if (!*stack)
 		*stack = ft_stacknew(data);
 	else
-		ft_stacklast(*stack)->next = ft_stacknew(data);
+	{
+		tmp = ft_stacknew(data);
+		tmp->prev = ft_stacklast(*stack);
+		ft_stacklast(*stack)->next = tmp;
+	}
 }
 
 void	push_init(t_stack **stack, int data)
@@ -49,6 +56,7 @@ void	push_init(t_stack **stack, int data)
 	if (!new_stack)
 		return ;
 	new_stack->next = *stack;
+	(*stack)->prev = new_stack;
 	*stack = new_stack;
 }
 
@@ -56,6 +64,7 @@ int	pop(t_stack **stack)
 {
 	t_stack	*iter;
 	t_stack	*temp;
+	t_stack	*last;
 	int		rvalue;
 
 	if ((*stack)->next == NULL)
@@ -66,11 +75,12 @@ int	pop(t_stack **stack)
 		return (rvalue);
 	}
 	iter = *stack;
-	while (iter->next->next != NULL)
-		iter = iter->next;
-	rvalue = iter->next->data;
-	temp = iter->next;
+	last = ft_stacklast(*stack);
+	iter = last->prev;
+	rvalue = last->data;
+	temp = last;
 	iter->next = NULL;
+	last->prev = NULL;
 	free(temp);
 	return (rvalue);
 }

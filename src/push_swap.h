@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:55:11 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/07 00:15:17 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/11 19:07:03 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 typedef struct s_stack
 {
 	int				data;
+	struct s_stack	*prev;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -26,9 +27,11 @@ int		is_int_item(char *item);
 int		is_int_list(char **list);
 int		is_duplicate(char **list);
 int		pop(t_stack **stack);
-int		is_sorted(t_stack **stack, char flag);
+int		is_sorted(t_stack **stack, char flag, int len);
 int		find_min(t_stack **stack);
-int		find_middle(t_stack **stack);
+int		find_middle(t_stack **stack, int len);
+int		divide_a(t_stack **a, t_stack **b, int len);
+int		divide_b(t_stack **b, t_stack **a, int len);
 
 t_stack	*ft_stacknew(int data);
 t_stack	*ft_stacklast(t_stack *stack);
@@ -56,9 +59,8 @@ void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 void	sort_three_a(t_stack **stack, char flag);
 void	sort_three_b(t_stack **stack, char flag);
-void	sort_a(t_stack **a, t_stack **b);
-void	sort_b(t_stack **b, t_stack **a, int count);
-int	divide_a(t_stack **a, t_stack **b);
-void	divide_b(t_stack **b, t_stack **a);
+void	sort_a(t_stack **a, t_stack **b, int len);
+void	sort_b(t_stack **b, t_stack **a, int len);
+void	reset_stack_a(int pivot, t_stack **a);
 
 #endif

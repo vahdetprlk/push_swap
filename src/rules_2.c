@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:46:50 by vparlak           #+#    #+#             */
-/*   Updated: 2023/05/28 00:39:00 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/12 00:09:37 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,24 @@ void	pb(t_stack **a, t_stack**b)
 
 void	rotate(t_stack **stack)
 {
-	t_stack	*iter;
-	t_stack	*temp;
+	t_stack	*last;
 
 	if ((*stack)->next->next == NULL)
 	{
-		temp = (*stack)->next;
-		temp->next = *stack;
+		(*stack)->prev = (*stack)->next;
 		(*stack)->next = NULL;
-		*stack = temp;
+		(*stack)->prev->prev = NULL;
+		(*stack)->prev->next = *stack;
+		*stack = (*stack)->prev;
 	}
 	else
 	{
-		iter = *stack;
-		while (iter->next->next != NULL)
-			iter = iter->next;
-		iter->next->next = *stack;
-		*stack = iter->next;
-		iter->next = NULL;
+		last = ft_stacklast(*stack);
+		last->next = *stack;
+		*stack = last;
+		last->prev->next = NULL;
+		(*stack)->prev = NULL;
+		(*stack)->next->prev = *stack;
 	}
 }
 

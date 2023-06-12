@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 01:00:57 by vparlak           #+#    #+#             */
-/*   Updated: 2023/05/13 01:22:28 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/11 23:57:59 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 void	rotate_reverse(t_stack **stack)
 {
 	t_stack	*iter;
-	t_stack	*temp;
+	t_stack	*last;
 
 	iter = *stack;
 	*stack = iter->next;
 	iter->next = NULL;
-	temp = ft_stacklast(*stack);
-	temp->next = iter;
+	last = ft_stacklast(*stack);
+	last->next = iter;
+	(*stack)->prev = NULL;
+	last->next->prev = last;
 }
 
 void	rra(t_stack **a)

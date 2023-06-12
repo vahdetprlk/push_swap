@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 09:00:34 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/06 14:29:36 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/12 00:18:50 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,21 @@ int	main(int argc, char *argv[])
 		else if (!is_duplicate(str_list))
 			error_case("Error", 0);
 		init_stack_a(&a, str_list);
-		sort_a(&a, &b);
+		//sort_a(&a, &b, (int)ft_stacksize(a));
+
+		printf("a---\n");
+		print_stack(a);
+		printf("b---\n");
+		print_stack(b);
+
+		pb(&a, &b);
+		pb(&a, &b);
+		printf("%d\n",(int)ft_stacksize(a));
+
+				printf("a---\n");
+		print_stack(a);
+		sa(&a);
+
 		printf("a---\n");
 		print_stack(a);
 		printf("b---\n");
