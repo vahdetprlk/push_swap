@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 09:00:34 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/13 20:06:57 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/14 00:09:45 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(int argc, char *argv[])
 			error_case("Error", 0);
 		init_stack_a(&a, str_list);
 		ft_sort(&a, &b, (int)ft_stacksize(a)); //Gelince baştan başla
-
 		
 		// Kullanılmayan Fonksiyonları en son silmeyi unutma.
 		/* buraya free fonksiyonları gelecek bu free
