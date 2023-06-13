@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/12 18:46:30 by vparlak           #+#    #+#             */
-/*   Updated: 2023/03/13 19:25:56 by vparlak          ###   ########.fr       */
+/*   Created: 2023/03/14 12:19:11 by vparlak           #+#    #+#             */
+/*   Updated: 2023/03/14 12:19:23 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_puthex_fd(unsigned long hex, int fd, int is_upper)
 {

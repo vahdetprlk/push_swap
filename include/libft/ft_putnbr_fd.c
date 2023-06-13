@@ -6,11 +6,11 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 04:44:49 by vparlak           #+#    #+#             */
-/*   Updated: 2023/03/13 19:30:05 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/03/14 12:03:19 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_putnbr_fd(long n, int fd)
 {

@@ -6,13 +6,14 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:55:11 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/13 20:37:27 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/14 00:59:27 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "../include/libft/libft.h"
+# include "../include/ft_printf/ft_printf.h"
 
 typedef struct s_stack
 {
@@ -29,12 +30,9 @@ int		is_duplicate(char **list);
 int		pop(t_stack **stack);
 int		is_sorted(t_stack **stack, char flag, int len);
 int		find_min(t_stack **stack);
-int		divide_a(t_stack **a, t_stack **b, int len, int count);
-int		divide_b(t_stack **b, t_stack **a, int len, int count);
 int		sort_a(t_stack **a, t_stack **b, int len, int count);
 int		sort_b(t_stack **b, t_stack **a, int len, int count);
 int		find_middle(int *pivot, t_stack **stack_a, int len);
-
 
 t_stack	*ft_stacknew(int d);
 t_stack	*ft_stacklast(t_stack *stack);
@@ -62,13 +60,11 @@ void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 void	sort_three_a(t_stack **a, t_stack **b, int len);
 void	sort_three_a_i(t_stack **a, t_stack **b, int len);
-void	sort_three_b(t_stack **stack, char flag);
 void	sort_small_b_i(t_stack **b, t_stack **a, int len);
 void	sort_three_first(t_stack **stack, char flag);
 void	sort_small_b(t_stack **b, t_stack **a, int len);
 void	ft_sort(t_stack **a, t_stack **b, int len);
-void	reset_stack_a(int pivot, t_stack **a);
-void	reset_stack_b(int pivot, t_stack **b);
 void	ft_sort_int_tmp(int *tmp_stack, int size);
+void	free_stacks(t_stack **stack_a, t_stack **stack_b);
 
 #endif

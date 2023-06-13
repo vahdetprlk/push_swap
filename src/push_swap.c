@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 09:00:34 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/14 00:09:45 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/14 00:32:08 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,8 @@ int	main(int argc, char *argv[])
 		else if (!is_duplicate(str_list))
 			error_case("Error", 0);
 		init_stack_a(&a, str_list);
-		ft_sort(&a, &b, (int)ft_stacksize(a)); //Gelince baştan başla
-		
-		// Kullanılmayan Fonksiyonları en son silmeyi unutma.
-		/* buraya free fonksiyonları gelecek bu free
-		fonksiyonları stackin daha önce free bırakılıp bırakılmadığını
-		kontol ederek eğer allocated memory varsa free bırakacak */
+		ft_sort(&a, &b, (int)ft_stacksize(a));
+		free_stacks(&a, &b);
 	}
 	return (0);
 }

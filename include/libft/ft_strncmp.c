@@ -6,11 +6,11 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:34:49 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/24 23:11:02 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/03/14 12:03:05 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

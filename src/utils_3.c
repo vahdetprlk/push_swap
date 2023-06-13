@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:17:35 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/13 20:18:23 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/14 00:21:34 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,24 @@ void	print_stack(t_stack *stack)
 	{
 		printf("%d\n", iter->d);
 		iter = iter->p;
+	}
+}
+
+void	free_stacks(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack	*temp;
+
+	temp = NULL;
+	while (*stack_a != NULL)
+	{
+		temp = *stack_a;
+		*stack_a = (*stack_a)->n;
+		free(temp);
+	}
+	while (*stack_b != NULL)
+	{
+		temp = *stack_b;
+		*stack_b = (*stack_b)->n;
+		free(temp);
 	}
 }

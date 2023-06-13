@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 01:00:57 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/13 20:17:11 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/14 00:53:39 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	rra(t_stack **a)
 	if (ft_stacksize(*a) > 1)
 	{
 		rotate_reverse(a);
-		printf("rra\n");
+		ft_printf("rra\n");
 	}
 }
 
@@ -40,7 +40,7 @@ void	rrb(t_stack **b)
 	if (ft_stacksize(*b) > 1)
 	{
 		rotate_reverse(b);
-		printf("rrb\n");
+		ft_printf("rrb\n");
 	}
 }
 
@@ -50,6 +50,6 @@ void	rrr(t_stack **a, t_stack **b)
 	{
 		rotate_reverse(a);
 		rotate_reverse(b);
-		printf("rrr\n");
+		ft_printf("rrr\n");
 	}
 }
