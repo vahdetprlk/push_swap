@@ -1,6 +1,6 @@
 NAME	= libft.a
 
-CC		= gcc
+CC		= cc
 CFLAGS	= -Wall -Wextra -Werror -g
 
 FILES	= $(shell find . -type f -name "ft_*.c")
