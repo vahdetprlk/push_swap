@@ -6,164 +6,86 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:56:40 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/12 00:06:00 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/13 20:38:14 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	bubble_sort(t_stack **stack)
+void	ft_sort_int_tmp(int *tmp_stack, int size)
 {
-	int		tmp;
-	t_stack	*iter_i;
-	t_stack	*iter_j;
+	int	i;
+	int	j;
+	int	tmp;
 
-	iter_i = *stack;
-	while (iter_i)
+	i = 0;
+	while (i < size)
 	{
-		iter_j = iter_i->next;
-		while (iter_j)
+		j = i + 1;
+		while (j < size)
 		{
-			if (iter_i->data < iter_j->data)
+			if (tmp_stack[i] > tmp_stack[j])
 			{
-				tmp = iter_i->data;
-				iter_i->data = iter_j->data;
-				iter_j->data = tmp;
+				tmp = tmp_stack[i];
+				tmp_stack[i] = tmp_stack[j];
+				tmp_stack[j] = tmp;
 			}
-			iter_j = iter_j->next;
+			j++;
 		}
-		iter_i = iter_i->next;
-	}
-}
-
-int	find_middle(t_stack **stack, int len)
-{
-	int		i;
-	t_stack	*iter;
-	t_stack	*tmp;
-
-	iter = *stack;
-	tmp = NULL;
-	i = 0;
-	while ((int)ft_stacksize(*stack) - len > i++)
-		iter = iter->next;
-	while (len--)
-	{
-		push(&tmp, iter->data);
-		iter = iter->next;
-	}
-	bubble_sort(&tmp);
-	i = 1;
-	iter = tmp;
-	while (((int)ft_stacksize(tmp) / 2 + (int)ft_stacksize(tmp) % 2) > i)
-	{
-		iter = iter->next;
 		i++;
 	}
-	return (iter->data);
 }
 
-void	reset_stack_a(int pivot, t_stack **a)
-{
-	t_stack	*iter;
-	int		size;
-	int		i;
-
-	iter = *a;
-	i = 0;
-	size = ft_stacksize(*a);
-	while (iter->next != NULL)
-	{
-		if (iter->data == pivot)
-			break ;
-		iter = iter->next;
-		i++;
-	}
-	if (i >= size / 2)
-		while (pivot != ft_stacklast(*a)->data)
-			ra(a);
-	else
-		while (pivot != ft_stacklast(*a)->data)
-			rra(a);
-}
-
-int	divide_a(t_stack **a, t_stack **b, int len)
-{
-	t_stack	*iter;
-	int		pivot;
-	int		i;
-
-	iter = *a;
-	pivot = find_middle(a, len);
-	i = 0;
-	while ((int)ft_stacksize(*a) - len > i++)
-		iter = iter->next;
-	i = len;
-	while (len != i / 2 + i % 2)
-	{
-		if (ft_stacklast(*a)->data < pivot && len--)
-			pb(a, b);
-		else
-			ra(a);
-	}
-	//reset_stack_a(pivot, a);
-	return (i / 2 + i % 2);
-}
-
-int	divide_b(t_stack **b, t_stack **a, int len)
-{
-	t_stack	*iter;
-	int		pivot;
-	int		i;
-
-	pivot = find_middle(b, len);
-	i = 0;
-	iter = *b;
-	while ((int)ft_stacksize(*b) - len > i++)
-		iter = iter->next;
-	while (len != i / 2)
-	{
-		if (pivot < ft_stacklast(*b)->data && len--)
-			pa(a, b);
-		else
-			rb(b);
-	}
-	return (i / 2);
-}
-
-int	is_sorted(t_stack **stack, char flag, int len)
+int	find_middle(int *pivot, t_stack **stack_a, int len)
 {
 	int		i;
 	int		*tmp;
 	t_stack	*iter;
 
-	iter = *stack;
-	tmp = malloc(ft_stacksize(*stack) * sizeof(int));
+	tmp = (int *)malloc(sizeof(int) * len);
 	if (!tmp)
 		return (0);
 	i = 0;
-	while (iter->next != NULL)
+	iter = ft_stacklast(*stack_a);
+	while (i < len)
 	{
-		tmp[i++] = iter->data;
-		iter = iter->next;
+		tmp[i] = iter->d;
+		iter = iter->p;
+		i++;
 	}
-	while (*stack != NULL)
+	ft_sort_int_tmp(tmp, len);
+	*pivot = tmp[len / 2];
+	free(tmp);
+	return (1);
+}
+
+int	is_sorted(t_stack **stack, char flag, int len)
+{
+	int		i;
+	t_stack	*last;
+
+	last = ft_stacklast(*stack);
+	if (flag == 'a')
 	{
-		if (flag == 'a' && len--)
+		i = 1;
+		while (i++ < len)
 		{
-			if (tmp[i] > tmp[i - 1])
+			if (last->d > last->p->d)
 				return (0);
+			last = last->p;
 		}
-		else if (flag == 'b' && len--)
-		{
-			if (tmp[i] < tmp[i - 1])
-				return (0);
-		}
-		else
-			return (1);
 	}
-	free (tmp);
-	return (0);
+	else if (flag == 'b')
+	{
+		i = 1;
+		while (i++ < len)
+		{
+			if (last->d < last->p->d)
+				return (0);
+			last = last->p;
+		}
+	}
+	return (1);
 }
 
 int	find_min(t_stack **stack)
@@ -172,37 +94,37 @@ int	find_min(t_stack **stack)
 	int		min;
 
 	iter = *stack;
-	min = iter->data;
-	while (iter->next)
+	min = iter->d;
+	while (iter->n)
 	{
-		if (iter->next->data < min)
-			min = iter->next->data;
-		iter = iter->next;
+		if (iter->n->d < min)
+			min = iter->n->d;
+		iter = iter->n;
 	}
 	return (min);
 }
 
-void	sort_three_a(t_stack **stack, char flag)
+void	sort_three_first(t_stack **stack, char flag)
 {
 	if (!is_sorted(stack, flag, 3))
 	{
-		if (find_min(stack) == (*stack)->next->data
-			&& (*stack)->data < ft_stacklast(*stack)->data)
+		if (find_min(stack) == (*stack)->n->d
+			&& (*stack)->d < ft_stacklast(*stack)->d)
 			ra(stack);
-		if (find_min(stack) == (*stack)->next->data
-			&& (*stack)->data > ft_stacklast(*stack)->data)
+		if (find_min(stack) == (*stack)->n->d
+			&& (*stack)->d > ft_stacklast(*stack)->d)
 			sa(stack);
-		if (find_min(stack) == (*stack)->data
-			&& (*stack)->next->data > ft_stacklast(*stack)->data)
+		if (find_min(stack) == (*stack)->d
+			&& (*stack)->n->d > ft_stacklast(*stack)->d)
 			rra(stack);
-		if (find_min(stack) == (*stack)->data
-			&& (*stack)->next->data < ft_stacklast(*stack)->data)
+		if (find_min(stack) == (*stack)->d
+			&& (*stack)->n->d < ft_stacklast(*stack)->d)
 		{
 			ra(stack);
 			sa(stack);
 		}
-		if (find_min(stack) == ft_stacklast(*stack)->data
-			&& (*stack)->data < (*stack)->next->data)
+		if (find_min(stack) == ft_stacklast(*stack)->d
+			&& (*stack)->d < (*stack)->n->d)
 		{
 			rra(stack);
 			sa(stack);
@@ -210,68 +132,147 @@ void	sort_three_a(t_stack **stack, char flag)
 	}
 }
 
-void	sort_three_b(t_stack **stack, char flag)
+void	sort_three_a_i(t_stack **a, t_stack **b, int len)
 {
-	if (!is_sorted(stack, flag, 3))
+	while (len != 3 || !(ft_stacklast(*a)->d < ft_stacklast(*a)->p->d
+			&& ft_stacklast(*a)->p->d < ft_stacklast(*a)->p->p->d))
 	{
-		if (find_min(stack) == (*stack)->next->data
-			&& (*stack)->data < ft_stacklast(*stack)->data)
+		if (len == 3 && ft_stacklast(*a)->d > ft_stacklast(*a)->p->d
+			&& ft_stacklast(*a)->p->p->d)
+			sa(a);
+		else if (len == 3 && !(ft_stacklast(*a)->p->p->d > ft_stacklast(*a)->d
+				&& ft_stacklast(*a)->p->p->d > ft_stacklast(*a)->p->d))
 		{
-			rrb(stack);
-			sb(stack);
+			pb(a, b);
+			len--;
 		}
-		if (find_min(stack) == (*stack)->next->data
-			&& (*stack)->data > ft_stacklast(*stack)->data)
-			rrb(stack);
-		if (find_min(stack) == (*stack)->data
-			&& (*stack)->next->data > ft_stacklast(*stack)->data)
-			sb(stack);
-		if (find_min(stack) == ft_stacklast(*stack)->data
-			&& (*stack)->data < (*stack)->next->data)
-			rb(stack);
-		if (find_min(stack) == ft_stacklast(*stack)->data
-			&& (*stack)->data > (*stack)->next->data)
-		{
-			rb(stack);
-			sb(stack);
-		}
+		else if (ft_stacklast(*a)->d > ft_stacklast(*a)->p->d)
+			sa(a);
+		else if (len++)
+			pa(a, b);
 	}
 }
 
-void	sort_a(t_stack **a, t_stack **b, int len)
+void	sort_three_a(t_stack **a, t_stack **b, int len)
 {
-	if (len && !is_sorted(a, 'a', len))
+	if (len == 3 && ft_stacksize(*a) == 3)
+		sort_three_first(a, 'a');
+	else if (len == 2)
+	{
+		if (ft_stacklast(*a)->d > ft_stacklast(*a)->p->d)
+			sa(a);
+	}
+	else if (len == 3)
+	{
+		sort_three_a_i(a, b, len);
+	}
+}
+
+void	sort_small_b_i(t_stack **b, t_stack **a, int len)
+{
+	while (len || !(ft_stacklast(*a)->d < ft_stacklast(*a)->p->d
+			&& ft_stacklast(*a)->p->d < ft_stacklast(*a)->p->p->d))
+	{
+		if (len == 1 && ft_stacklast(*a)->d > ft_stacklast(*a)->p->d)
+			sa(a);
+		else if ((len == 1
+				|| (len >= 2
+					&& ft_stacklast(*b)->d > ft_stacklast(*b)->p->d)
+				|| (len == 3
+					&& ft_stacklast(*b)->d > ft_stacklast(*b)->p->p->d)))
+		{
+			pa(a, b);
+			len--;
+		}
+		else
+			sb(b);
+	}
+}
+
+void	sort_small_b(t_stack **b, t_stack **a, int len)
+{
+	if (len == 1)
+		pa(a, b);
+	else if (len == 2)
+	{
+		if (ft_stacklast(*b)->d < ft_stacklast(*b)->p->d)
+			sb(b);
+		while (len--)
+			pa(a, b);
+	}
+	else if (len == 3)
+	{
+		sort_small_b_i(b, a, len);
+	}
+}
+
+void	ft_sort(t_stack **a, t_stack **b, int len)
+{
+	if (!is_sorted(a, 'a', len))
 	{
 		if (len == 2)
 			sa(a);
 		else if (len == 3)
-		{
-			sort_three_a(a, 'a');
-		}
+			sort_three_first(a, 'a');
 		else
-		{
-			len = divide_a(a, b, len);
-			sort_a(a, b, len);
-			sort_b(b, a, len);
-		}
+			sort_a(a, b, len, 0);
 	}
 }
 
-void	sort_b(t_stack **b, t_stack **a, int len)
+int	sort_a(t_stack **a, t_stack **b, int len, int count)
 {
-	if (is_sorted(b, 'b', len))
+	int	pivot;
+	int	i;
+
+	if (is_sorted(a, 'a', len))
+		return (1);
+	i = len;
+	if (len <= 3)
+	{
+		sort_three_a(a, b, len);
+		return (1);
+	}
+	if (!find_middle(&pivot, a, len))
+		return (0);
+	while (len != i / 2 + i % 2)
+	{
+		if (ft_stacklast(*a)->d < pivot && (len--))
+			pb(a, b);
+		else if (++count)
+			ra(a);
+	}
+	while ((i / 2 + i % 2) != (int)ft_stacksize(*a) && count--)
+		rra(a);
+	return (sort_a(a, b, (i / 2 + i % 2), 0)
+		&& sort_b(b, a, i / 2, 0));
+	return (1);
+}
+
+int	sort_b(t_stack **b, t_stack **a, int len, int count)
+{
+	int	pivot;
+	int	i;
+
+	if (!count && is_sorted(b, 'b', len))
 		while (len--)
 			pa(a, b);
 	if (len <= 3)
-		printf("3den aşağı olanları sırala");
-	else
 	{
-		len = divide_b(b, a, len);
-		sort_a(a, b, len);
-		sort_b(b, a, len);
+		sort_small_b(b, a, len);
+		return (1);
 	}
+	i = len;
+	if (!find_middle(&pivot, b, len))
+		return (0);
+	while (len != i / 2)
+	{
+		if (ft_stacklast(*b)->d >= pivot && (len--))
+			pa(a, b);
+		else if (++count)
+			rb(b);
+	}
+	while (i / 2 != (int)ft_stacksize(*b) && count--)
+		rrb(b);
+	return (sort_a(a, b, (i / 2 + i % 2), 0)
+		&& sort_b(b, a, i / 2, 0));
 }
-
-
-
-

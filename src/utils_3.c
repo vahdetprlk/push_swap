@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:17:35 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/11 19:40:20 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/13 20:18:23 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t	ft_stacksize(t_stack *stack)
 	n = 0;
 	while (stack != NULL)
 	{
-		stack = stack->next;
+		stack = stack->n;
 		n++;
 	}
 	return (n);
@@ -42,7 +42,7 @@ void	print_stack(t_stack *stack)
 	iter = ft_stacklast(stack);
 	while (!(iter == NULL))
 	{
-		printf("%d\n", iter->data);
-		iter = iter->prev;
+		printf("%d\n", iter->d);
+		iter = iter->p;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:46:50 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/12 00:09:37 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/13 20:16:55 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,22 @@ void	rotate(t_stack **stack)
 {
 	t_stack	*last;
 
-	if ((*stack)->next->next == NULL)
+	if ((*stack)->n->n == NULL)
 	{
-		(*stack)->prev = (*stack)->next;
-		(*stack)->next = NULL;
-		(*stack)->prev->prev = NULL;
-		(*stack)->prev->next = *stack;
-		*stack = (*stack)->prev;
+		(*stack)->p = (*stack)->n;
+		(*stack)->n = NULL;
+		(*stack)->p->p = NULL;
+		(*stack)->p->n = *stack;
+		*stack = (*stack)->p;
 	}
 	else
 	{
 		last = ft_stacklast(*stack);
-		last->next = *stack;
+		last->n = *stack;
 		*stack = last;
-		last->prev->next = NULL;
-		(*stack)->prev = NULL;
-		(*stack)->next->prev = *stack;
+		last->p->n = NULL;
+		(*stack)->p = NULL;
+		(*stack)->n->p = *stack;
 	}
 }
 

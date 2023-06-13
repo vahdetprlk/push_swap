@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:27:45 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/12 00:09:16 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/13 20:16:35 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,24 @@ void	swap_top(t_stack **stack)
 	t_stack	*iter;
 	t_stack	*last;
 
-	if ((*stack)->next->next == NULL)
+	if ((*stack)->n->n == NULL)
 	{
-		(*stack)->prev = (*stack)->next;
-		(*stack)->prev->prev = NULL;
-		(*stack)->prev->next = (*stack);
-		(*stack)->next = NULL;
-		(*stack) = (*stack)->prev;
+		(*stack)->p = (*stack)->n;
+		(*stack)->p->p = NULL;
+		(*stack)->p->n = (*stack);
+		(*stack)->n = NULL;
+		(*stack) = (*stack)->p;
 	}
 	else
 	{
 		iter = *stack;
 		last = ft_stacklast(*stack);
-		iter = last->prev;
-		last->next = iter;
-		iter->next = NULL;
-		iter->prev->next = last;
-		last->prev = iter->prev;
-		iter->prev = last;
+		iter = last->p;
+		last->n = iter;
+		iter->n = NULL;
+		iter->p->n = last;
+		last->p = iter->p;
+		iter->p = last;
 	}
 }
 
