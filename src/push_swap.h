@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:55:11 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/14 00:59:27 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/14 18:07:01 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_stack	*ft_stacklast(t_stack *stack);
 
 size_t	ft_stacksize(t_stack *stack);
 
+void	check_arguments(char **str_list);
 void	init_stack_a(t_stack **a, char **list);
 void	error_case(char *msg, int status);
 void	print_stack(t_stack *stack);
