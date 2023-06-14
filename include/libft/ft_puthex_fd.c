@@ -6,11 +6,11 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 12:19:11 by vparlak           #+#    #+#             */
-/*   Updated: 2023/03/14 12:19:23 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/14 20:58:54 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_puthex_fd(unsigned long hex, int fd, int is_upper)
 {

@@ -1,16 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/10 15:28:41 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/14 18:26:47 by vparlak          ###   ########.fr       */
+/*   Created: 2023/06/14 19:33:26 by vparlak           #+#    #+#             */
+/*   Updated: 2023/06/14 22:29:18 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include "push_swap.h"
+
+void	checker_printer(void)
 {
-	return (c >= '0' && c <= '9');
+	ft_printf("%s\n", get_next_line(0));
+}
+
+int	main(void)
+{
+	checker_printer();
 }

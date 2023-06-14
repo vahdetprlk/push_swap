@@ -6,11 +6,11 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 03:45:18 by vparlak           #+#    #+#             */
-/*   Updated: 2023/03/14 12:03:25 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/14 20:58:34 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_putchar_fd(char c, int fd)
 {

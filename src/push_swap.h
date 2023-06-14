@@ -6,14 +6,18 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:55:11 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/14 18:07:01 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/14 21:14:01 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include "../include/libft/libft.h"
-# include "../include/ft_printf/ft_printf.h"
+# include "./../include/libft/libft.h"
+# include "./../include/ft_printf/ft_printf.h"
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 typedef struct s_stack
 {
@@ -23,6 +27,8 @@ typedef struct s_stack
 }					t_stack;
 
 char	**add_to_list(int argc, char **argv);
+
+char	*get_next_line(int fd);
 
 int		is_int_item(char *item);
 int		is_int_list(char **list);
