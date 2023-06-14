@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 18:40:35 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/14 18:52:35 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/14 22:49:49 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	is_int_list(char **list)
 	i = 0;
 	while (list[i])
 	{
-		if (!is_int_item(list[i]))
+		if (!is_int_item(list[i]) || ft_strlen(list[i]) == 0)
 			return (0);
 		i++;
 	}
