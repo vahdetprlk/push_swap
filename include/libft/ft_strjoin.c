@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 22:32:01 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/25 14:14:39 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/15 23:54:46 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*dst;		
+	char	*dst;
 	size_t	dstsize;
 
 	dstsize = ft_strlen(s1) + ft_strlen(s2) + 1;

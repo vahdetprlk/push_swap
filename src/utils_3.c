@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 14:17:35 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/14 00:21:34 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/16 00:05:24 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,12 @@ void	free_stacks(t_stack **stack_a, t_stack **stack_b)
 		*stack_b = (*stack_b)->n;
 		free(temp);
 	}
+}
+
+void	check_arguments(char **str_list)
+{
+	if (!is_int_list(str_list))
+		error_case("Error", 1);
+	else if (!is_duplicate(str_list))
+		error_case("Error", 1);
 }

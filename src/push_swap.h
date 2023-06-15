@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:55:11 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/14 21:14:01 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/15 23:30:41 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void	sort_small_b(t_stack **b, t_stack **a, int len);
 void	ft_sort(t_stack **a, t_stack **b, int len);
 void	ft_sort_int_tmp(int *tmp_stack, int size);
 void	free_stacks(t_stack **stack_a, t_stack **stack_b);
+void	init_instructions(char **rule_list);
 
 #endif

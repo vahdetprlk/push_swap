@@ -13,6 +13,18 @@
             "externalConsole": false,
             "MIMode": "lldb"
         },
+           {
+            "name": "push_swap",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/push_swap",
+            "args": ["3", "2", "1"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "miDebuggerArgs": "-interpreter=mi2"
+        },
         {
             "name": "C/C++: gcc etkin dosyayı derle ve dosyada hata ayıkla",
             "type": "cppdbg",
@@ -25,6 +37,19 @@
             "externalConsole": false,
             "MIMode": "lldb",
             "preLaunchTask": "C/C++: gcc etkin dosyayı derle"
+        },
+        {
+            "name": "checker",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/checker",
+            "args": ["3", "2", "1"],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "externalConsole": true,
+            "MIMode": "lldb",
+            "miDebuggerArgs": "-interpreter=mi2",
+            "preLaunchTask": "build checker"
         }
     ]
 }
