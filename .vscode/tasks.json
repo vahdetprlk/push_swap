@@ -14,7 +14,7 @@
                 "-Ilibft",
                 "-Ift_printf",
                 "-L./include/libft",
-                "-L./include/ft_printf",
+                "-L./include/libftprintf",
                 "-lft",
                 "-lftprintf"
             ],
