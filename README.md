@@ -10,15 +10,6 @@ Bu proje, verilen verileri bir yığın üzerinde sınırlı bir dizi talimat ku
 
 Bu projenin hedefleri arasında bir sıralama algoritması geliştirmek, karmaşıklık analizi konusunda deneyim kazanmak ve C programlama dili kullanarak temel algoritmaları pratik yapmak bulunur.
 
-## Gereksinimler
-
-Proje için aşağıdaki gereksinimleri karşılamalısınız:
-
-- Normlara uygun kod yazmalısınız.
-- Beklenmedik program sonlandırmalardan kaçınmalısınız.
-- Ayrılmış belleği düzgün bir şekilde serbest bırakmalısınız.
-- Bir Makefile sağlamalısınız.
-
 ## Kullanım
 
 Projenin nasıl çalıştırılacağına dair talimatları aşağıda bulabilirsiniz:
