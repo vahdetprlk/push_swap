@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 00:11:54 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/14 00:12:54 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/16 21:14:29 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int	sort_a(t_stack **a, t_stack **b, int len, int count)
 	while (len != i / 2 + i % 2)
 	{
 		if (ft_stacklast(*a)->d < pivot && (len--))
-			pb(a, b);
+			pb(a, b, 0);
 		else if (++count)
-			ra(a);
+			ra(a, 0);
 	}
 	while ((i / 2 + i % 2) != (int)ft_stacksize(*a) && count--)
-		rra(a);
+		rra(a, 0);
 	return (sort_a(a, b, (i / 2 + i % 2), 0)
 		&& sort_b(b, a, i / 2, 0));
 	return (1);
@@ -48,7 +48,7 @@ int	sort_b(t_stack **b, t_stack **a, int len, int count)
 
 	if (!count && is_sorted(b, 'b', len))
 		while (len--)
-			pa(a, b);
+			pa(a, b, 0);
 	if (len <= 3)
 	{
 		sort_small_b(b, a, len);
@@ -60,12 +60,12 @@ int	sort_b(t_stack **b, t_stack **a, int len, int count)
 	while (len != i / 2)
 	{
 		if (ft_stacklast(*b)->d >= pivot && (len--))
-			pa(a, b);
+			pa(a, b, 0);
 		else if (++count)
-			rb(b);
+			rb(b, 0);
 	}
 	while (i / 2 != (int)ft_stacksize(*b) && count--)
-		rrb(b);
+		rrb(b, 0);
 	return (sort_a(a, b, (i / 2 + i % 2), 0)
 		&& sort_b(b, a, i / 2, 0));
 }

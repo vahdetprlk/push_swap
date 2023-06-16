@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 15:56:40 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/14 00:13:57 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/16 21:12:20 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,24 +110,24 @@ void	sort_three_first(t_stack **stack, char flag)
 	{
 		if (find_min(stack) == (*stack)->n->d
 			&& (*stack)->d < ft_stacklast(*stack)->d)
-			ra(stack);
+			ra(stack, 0);
 		if (find_min(stack) == (*stack)->n->d
 			&& (*stack)->d > ft_stacklast(*stack)->d)
-			sa(stack);
+			sa(stack, 0);
 		if (find_min(stack) == (*stack)->d
 			&& (*stack)->n->d > ft_stacklast(*stack)->d)
-			rra(stack);
+			rra(stack, 0);
 		if (find_min(stack) == (*stack)->d
 			&& (*stack)->n->d < ft_stacklast(*stack)->d)
 		{
-			ra(stack);
-			sa(stack);
+			ra(stack, 0);
+			sa(stack, 0);
 		}
 		if (find_min(stack) == ft_stacklast(*stack)->d
 			&& (*stack)->d < (*stack)->n->d)
 		{
-			rra(stack);
-			sa(stack);
+			rra(stack, 0);
+			sa(stack, 0);
 		}
 	}
 }

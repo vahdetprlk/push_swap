@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 01:00:57 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/14 00:53:39 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/16 21:10:54 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,33 @@ void	rotate_reverse(t_stack **stack)
 	last->n->p = last;
 }
 
-void	rra(t_stack **a)
+void	rra(t_stack **a, int is_printed)
 {
 	if (ft_stacksize(*a) > 1)
 	{
 		rotate_reverse(a);
-		ft_printf("rra\n");
+		if (!is_printed)
+			ft_printf("rra\n");
 	}
 }
 
-void	rrb(t_stack **b)
+void	rrb(t_stack **b, int is_printed)
 {
 	if (ft_stacksize(*b) > 1)
 	{
 		rotate_reverse(b);
-		ft_printf("rrb\n");
+		if (!is_printed)
+			ft_printf("rrb\n");
 	}
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b, int is_printed)
 {
 	if (ft_stacksize(*a) && ft_stacksize(*b))
 	{
 		rotate_reverse(a);
 		rotate_reverse(b);
-		ft_printf("rrr\n");
+		if (!is_printed)
+			ft_printf("rrr\n");
 	}
 }

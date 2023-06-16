@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 00:10:54 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/14 00:11:41 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/16 23:19:37 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ void	sort_three_a_i(t_stack **a, t_stack **b, int len)
 	{
 		if (len == 3 && ft_stacklast(*a)->d > ft_stacklast(*a)->p->d
 			&& ft_stacklast(*a)->p->p->d)
-			sa(a);
+			sa(a, 0);
 		else if (len == 3 && !(ft_stacklast(*a)->p->p->d > ft_stacklast(*a)->d
 				&& ft_stacklast(*a)->p->p->d > ft_stacklast(*a)->p->d))
 		{
-			pb(a, b);
+			pb(a, b, 0);
 			len--;
 		}
 		else if (ft_stacklast(*a)->d > ft_stacklast(*a)->p->d)
-			sa(a);
+			sa(a, 0);
 		else if (len++)
-			pa(a, b);
+			pa(a, b, 0);
 	}
 }
 
@@ -40,7 +40,7 @@ void	sort_three_a(t_stack **a, t_stack **b, int len)
 	else if (len == 2)
 	{
 		if (ft_stacklast(*a)->d > ft_stacklast(*a)->p->d)
-			sa(a);
+			sa(a, 0);
 	}
 	else if (len == 3)
 	{
@@ -54,31 +54,31 @@ void	sort_small_b_i(t_stack **b, t_stack **a, int len)
 			&& ft_stacklast(*a)->p->d < ft_stacklast(*a)->p->p->d))
 	{
 		if (len == 1 && ft_stacklast(*a)->d > ft_stacklast(*a)->p->d)
-			sa(a);
+			sa(a, 0);
 		else if ((len == 1
 				|| (len >= 2
 					&& ft_stacklast(*b)->d > ft_stacklast(*b)->p->d)
 				|| (len == 3
 					&& ft_stacklast(*b)->d > ft_stacklast(*b)->p->p->d)))
 		{
-			pa(a, b);
+			pa(a, b, 0);
 			len--;
 		}
 		else
-			sb(b);
+			sb(b, 0);
 	}
 }
 
 void	sort_small_b(t_stack **b, t_stack **a, int len)
 {
 	if (len == 1)
-		pa(a, b);
+		pa(a, b, 0);
 	else if (len == 2)
 	{
 		if (ft_stacklast(*b)->d < ft_stacklast(*b)->p->d)
-			sb(b);
+			sb(b, 0);
 		while (len--)
-			pa(a, b);
+			pa(a, b, 0);
 	}
 	else if (len == 3)
 	{
@@ -91,7 +91,7 @@ void	ft_sort(t_stack **a, t_stack **b, int len)
 	if (!is_sorted(a, 'a', len))
 	{
 		if (len == 2)
-			sa(a);
+			sa(a, 0);
 		else if (len == 3)
 			sort_three_first(a, 'a');
 		else

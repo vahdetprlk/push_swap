@@ -6,18 +6,19 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:46:50 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/14 00:53:09 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/16 21:10:41 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pb(t_stack **a, t_stack**b)
+void	pb(t_stack **a, t_stack**b, int is_printed)
 {
 	if (ft_stacksize(*a) > 0)
 	{
 		push(b, pop(a));
-		ft_printf("pb\n");
+		if (!is_printed)
+			ft_printf("pb\n");
 	}
 }
 
@@ -44,30 +45,33 @@ void	rotate(t_stack **stack)
 	}
 }
 
-void	ra(t_stack **a)
+void	ra(t_stack **a, int is_printed)
 {
 	if (ft_stacksize(*a) > 0)
 	{
 		rotate(a);
-		ft_printf("ra\n");
+		if (!is_printed)
+			ft_printf("ra\n");
 	}
 }
 
-void	rb(t_stack **b)
+void	rb(t_stack **b, int is_printed)
 {
 	if (ft_stacksize(*b) > 0)
 	{
 		rotate(b);
-		ft_printf("rb\n");
+		if (!is_printed)
+			ft_printf("rb\n");
 	}
 }
 
-void	rr(t_stack **a, t_stack**b)
+void	rr(t_stack **a, t_stack**b, int is_printed)
 {
 	if (ft_stacksize(*a) > 0 && ft_stacksize(*b) > 0)
 	{
 		rotate(a);
 		rotate(b);
-		ft_printf("rr\n");
+		if (!is_printed)
+			ft_printf("rr\n");
 	}
 }

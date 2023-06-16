@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:27:45 by vparlak           #+#    #+#             */
-/*   Updated: 2023/06/14 00:53:57 by vparlak          ###   ########.fr       */
+/*   Updated: 2023/06/16 23:19:12 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,39 +38,43 @@ void	swap_top(t_stack **stack)
 	}
 }
 
-void	sa(t_stack **a)
+void	sa(t_stack **a, int is_printed)
 {
 	if (ft_stacksize(*a) > 1)
 	{
 		swap_top(a);
-		ft_printf("sa\n");
+		if (!is_printed)
+			ft_printf("sa\n");
 	}
 }
 
-void	sb(t_stack **b)
+void	sb(t_stack **b, int is_printed)
 {
 	if (ft_stacksize(*b) > 1)
 	{
 		swap_top(b);
-		ft_printf("sb\n");
+		if (!is_printed)
+			ft_printf("sb\n");
 	}
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, int is_printed)
 {
 	if (ft_stacksize(*b) > 1 && ft_stacksize(*b) > 1)
 	{
 		swap_top(a);
 		swap_top(b);
-		ft_printf("ss\n");
+		if (!is_printed)
+			ft_printf("ss\n");
 	}
 }
 
-void	pa(t_stack **a, t_stack**b)
+void	pa(t_stack **a, t_stack**b, int is_printed)
 {
 	if (ft_stacksize(*b) > 0)
 	{
 		push(a, pop(b));
-		ft_printf("pa\n");
+		if (!is_printed)
+			ft_printf("pa\n");
 	}
 }
