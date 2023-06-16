@@ -29,7 +29,7 @@ LIBFT_DIR = include/libft
 LIBFT = $(LIBFT_DIR)/libft.a
 LIBFT_INC = -I$(LIBFT_DIR)
 
-PRINTF_DIR = include/ft_printf
+PRINTF_DIR = include/libftprintf
 PRINTF = $(PRINTF_DIR)/libftprintf.a
 PRINTF_INC = -I$(PRINTF_DIR)
 
