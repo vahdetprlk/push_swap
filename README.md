@@ -23,13 +23,13 @@ Projenin nasıl çalıştırılacağına dair talimatları aşağıda bulabilirs
 
 3. Derleme işlemi tamamlandıktan sonra, `push_swap` programını çalıştırın ve tamsayı listesini argüman olarak verin:
 
-./push_swap 4 2 7 1 5
+`./push_swap 4 2 7 1 5`
 
 Bu komut, verilen tamsayı listesini sıralamak için kullanılacak en küçük talimat listesini ekrana yazdıracaktır.
 
 4. Ayrıca, `checker` programını da kullanarak sıralamanın doğruluğunu kontrol edebilirsiniz. `checker` programı, `push_swap` programının ürettiği talimat listesini alacak ve bu talimatları kullanarak tamsayı listesini kontrol edecektir:
 
-./push_swap 4 2 7 1 5 | ./checker 4 2 7 1 5
+`./push_swap 4 2 7 1 5 | ./checker 4 2 7 1 5`
 
 
 Eğer tamsayı listesi doğru bir şekilde sıralandıysa, `OK` mesajı görüntülenecektir. Aksi takdirde, `KO` mesajı alacaksınız.

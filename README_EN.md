@@ -21,13 +21,13 @@ You can find instruductions about how to execute the project in bellow down:
 
 3. After the compile process, execute `push_swap` program and give an array of integer as a argument.
 
-./push_swap 4 2 7 1 5
+`./push_swap 4 2 7 1 5`
 
 This command will print the smallest instruduction list will use for to sort given integer list.
 
 4. In addition, you can check the truth of sorting by use `checker` program. `checker` program is going to recieve the list of instruductions produced by the `push_swap` program and check the integer list by using this instruductions.
 
-./push_swap 4 2 7 1 5 | ./checker 4 2 7 1 5
+`./push_swap 4 2 7 1 5 | ./checker 4 2 7 1 5`
 
 If the integer list has sorted correctly, `OK` message will be displayed. Otherwise, You take `KO` message.
 
