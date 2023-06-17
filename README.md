@@ -1,10 +1,11 @@
 # push_swap
 
-Bu proje, verilen verileri bir yığın üzerinde sınırlı bir dizi talimat kullanarak sıralamayı amaçlar. Aşağıdaki talimatları kullanarak verileri manipüle etmek ve mümkün olan en az sayıda işlemle sıralamayı gerçekleştirmek hedeflenir.
+Bu proje, verilen verileri bir yığın üzerinde sınırlı bir dizi talimat kullanarak sıralamayı amaçlar.
+Ayrıca bunu mümkün olan en az sayıda işlemle gerçekleştirmek hedeflenir.
 
 ## Giriş
 
-42 Okullarının müfredatında bulunan Push_swap projesi, verileri sıralama üzerinde odaklanan bir algoritma projesidir. Projede, bir dizi tamsayı değeri, iki yığın ve yığınları manipüle etmek için talimatlar sağlanır. Amacımız, verilen tamsayıları sıralamak için en küçük programı hesaplayan ve gösteren bir `push_swap` adında bir C programı yazmaktır.
+42 Okullarının müfredatında bulunan Push_swap projesi, verileri sıralama üzerinde odaklanan bir algoritma projesidir. Projede, bir dizi tamsayı değeri, iki yığın ve yığınları manipüle etmek için talimatlar kullanıldı. Amacımız, verilen tamsayıları sıralamak için en küçük yolu hesaplayan ve gösteren bir `push_swap` adında bir C programı yazmaktır.
 
 ## Hedefler
 
@@ -16,18 +17,17 @@ Projenin nasıl çalıştırılacağına dair talimatları aşağıda bulabilirs
 
 1. İlk adımda, projeyi yerel bir dizine klonlayın.
 
-3. Proje dizinine gidin.
 
-3. Ardından, `make all` komutunu kullanarak projeyi derleyin.
+2. Ardından, `make all` komutunu kullanarak projeyi derleyin.
 
 
-4. Derleme işlemi tamamlandıktan sonra, `push_swap` programını çalıştırın ve tamsayı listesini argüman olarak verin:
+3. Derleme işlemi tamamlandıktan sonra, `push_swap` programını çalıştırın ve tamsayı listesini argüman olarak verin:
 
 ./push_swap 4 2 7 1 5
 
 Bu komut, verilen tamsayı listesini sıralamak için kullanılacak en küçük talimat listesini ekrana yazdıracaktır.
 
-5. Ayrıca, `checker` programını da kullanarak sıralamanın doğruluğunu kontrol edebilirsiniz. `checker` programı, `push_swap` programının ürettiği talimat listesini alacak ve bu talimatları kullanarak tamsayı listesini kontrol edecektir:
+4. Ayrıca, `checker` programını da kullanarak sıralamanın doğruluğunu kontrol edebilirsiniz. `checker` programı, `push_swap` programının ürettiği talimat listesini alacak ve bu talimatları kullanarak tamsayı listesini kontrol edecektir:
 
 ./push_swap 4 2 7 1 5 | ./checker 4 2 7 1 5
 
@@ -46,6 +46,6 @@ Push_swap projesinde, verileri saklamak ve manipüle etmek için iki yığın ku
 
 2. İkincil Yığın (Stack B): Bu yığın, geçici olarak verileri saklamak için kullanılır. Özellikle, Insertion Sort algoritmasında kullanılır. Veriler, birincil yığından ikincil yığına aktarılır, sıralama işlemi gerçekleştirildikten sonra tekrar birincil yığına aktarılır.
 
-Bu yığın yapıları iki yönlü bağlı liste (Doubly Linked List) kullanılarak oluşturulumuştur. Her düğüm, hem bir önceki düğüme hem de bir sonraki düğüme referansları olan bir yapıya sahiptir. Bu özellik, liste üzerinde hem ileri hem de geri yönlü gezinmeyi sağlar ve ilk giren son çıkar (FILO) şeklinde çalışmaktadır.  
+Bu yığın yapıları iki yönlü bağlı liste (Doubly Linked List) kullanılarak oluşturulumuştur. Her düğüm, hem bir önceki düğüme hem de bir sonraki düğüme referansları olan bir yapıya sahiptir. Bu özellik, liste üzerinde hem ileri hem de geri yönlü gezinmeyi sağlar ve ilk giren son çıkar (FILO) şeklinde çalışmaktadır.
 
 Yukarıdaki veri yapıları, verileri düzenlemek ve sıralama algoritmalarını uygulamak için projede kullanılan temel yapıları temsil eder.
