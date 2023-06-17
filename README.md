@@ -1,51 +1,42 @@
 # push_swap
 
-Bu proje, verilen verileri bir yığın üzerinde sınırlı bir dizi talimat kullanarak sıralamayı amaçlar.
-Ayrıca bunu mümkün olan en az sayıda işlemle gerçekleştirmek hedeflenir.
+This project aims to sort the given data on a stack using a limited set of instructions.
+In addition, it is aimed to achieve this with the least possible number of transactions.
 
-## Giriş
+## Introduction
 
-42 Okullarının müfredatında bulunan Push_swap projesi, verileri sıralama üzerinde odaklanan bir algoritma projesidir. Projede, bir dizi tamsayı değeri, iki yığın ve yığınları manipüle etmek için talimatlar kullanıldı. Amacımız, verilen tamsayıları sıralamak için en küçük yolu hesaplayan ve gösteren bir `push_swap` adında bir C programı yazmaktır.
+The push_swap project, which is included in the curriculum of 42 Schools, is a project that focuses on the sorting of data. In the project, an array of integer values, two stacks and instructions to manipulate these stacks were used. Our goal is writing a C program called `push_swap` that calculates and displays the smallest path to sort the given integers.
 
-## Hedefler
+## Goals
 
-Bu projenin hedefleri arasında bir sıralama algoritması geliştirmek, karmaşıklık analizi konusunda deneyim kazanmak ve C programlama dili kullanarak temel algoritmaları pratik yapmak bulunur.
+The goals of this project include developing a sorting algorithm, gaining experience in complexity analysis, and practicing basic algorithms using the C programming language.
 
-## Kullanım
+## Usage
 
-Projenin nasıl çalıştırılacağına dair talimatları aşağıda bulabilirsiniz:
+You can find instruductions about how to execute the project in bellow down:
 
-1. İlk adımda, projeyi yerel bir dizine klonlayın.
+1. In first step, copy the project to a local directory.
 
+2. Next, compile the project by using `make all` command.
 
-2. Ardından, `make all` komutunu kullanarak projeyi derleyin.
-
-
-3. Derleme işlemi tamamlandıktan sonra, `push_swap` programını çalıştırın ve tamsayı listesini argüman olarak verin:
+3. After the compile process, execute `push_swap` program and give an array of integer as a argument.
 
 `./push_swap 4 2 7 1 5`
 
-Bu komut, verilen tamsayı listesini sıralamak için kullanılacak en küçük talimat listesini ekrana yazdıracaktır.
+This command will print the smallest instruduction list will use for to sort given integer list.
 
-4. Ayrıca, `checker` programını da kullanarak sıralamanın doğruluğunu kontrol edebilirsiniz. `checker` programı, `push_swap` programının ürettiği talimat listesini alacak ve bu talimatları kullanarak tamsayı listesini kontrol edecektir:
+4. In addition, you can check the truth of sorting by use `checker` program. `checker` program is going to recieve the list of instruductions produced by the `push_swap` program and check the integer list by using this instruductions.
 
 `./push_swap 4 2 7 1 5 | ./checker 4 2 7 1 5`
 
+If the integer list has sorted correctly, `OK` message will be displayed. Otherwise, You take `KO` message.
 
-Eğer tamsayı listesi doğru bir şekilde sıralandıysa, `OK` mesajı görüntülenecektir. Aksi takdirde, `KO` mesajı alacaksınız.
+## Algorithm and Data Structure
 
-## Algoritma:
-Bu push_swap projesinde "Quick Sort" algoritması kullanıldı. Projede, verilen verileri sıralamak için en uygun algoritmayı belirlemek ve en az sayıda adımda sıralamayı gerçekleştirmek amaçlanır.
+"Quick Sort" algorithm were used in this push_swap project. Also two stack were used that create with doubly linked list.
 
-- Quick Sort: Bu algoritma, verileri bir pivot elemanı etrafında bölerek sıralama yapar. İlk olarak, bir pivot elemanı seçilir. Daha sonra, pivot elemanından daha küçük olanlar bir yığında toplanırken, pivot elemanından daha büyük olanlar diğer yığında toplanır. Bu işlem, iki yığında da ayrışma işlemi tamamlanana kadar tekrarlanır. Ardından, ayrıştırılmış yığınlar aynı işlemle sıralanır ve birleştirilir.
+- Quick Sort: This algorithm sorts the data by dividing it around a pivot element. First, a pivot element is selected. Later, those smaller than the pivot element are collected in one stack, while those larger than the pivot element are collected in the other stack. This process is repeated until the separation process is complete in both batches. Then, the decomposed stacks are sorted and combined in the same process.
 
-## Veri Yapısı:
-Push_swap projesinde, verileri saklamak ve manipüle etmek için iki yığın kullanılır. Bu yığınlar, verileri bellekte tutan ve sıralama işlemlerini gerçekleştiren veri yapılarıdır.
+- Stacks: These stack structures are created using a Double Linked List. Each node has a structure with references to both the previous node and the next node. This feature provides both forward and backward navigation on the list and works first in, last out (FILO).
 
-1. Birincil Yığın (Stack A): Bu yığın, sıralanacak tamsayı verilerini tutar. İşlemler bu yığın üzerinde gerçekleştirilir. Yığın üzerindeki işlemler şunları içerebilir: veri ekleme, veri çıkarma, yığını boşaltma.
 
-2. İkincil Yığın (Stack B): Bu yığın, geçici olarak verileri saklamak için kullanılır. Özellikle, Insertion Sort algoritmasında kullanılır. Veriler, birincil yığından ikincil yığına aktarılır, sıralama işlemi gerçekleştirildikten sonra tekrar birincil yığına aktarılır.
-
-Bu yığın yapıları iki yönlü bağlı liste (Doubly Linked List) kullanılarak oluşturulumuştur. Her düğüm, hem bir önceki düğüme hem de bir sonraki düğüme referansları olan bir yapıya sahiptir. Bu özellik, liste üzerinde hem ileri hem de geri yönlü gezinmeyi sağlar ve ilk giren son çıkar (FILO) şeklinde çalışmaktadır.
-
-Yukarıdaki veri yapıları, verileri düzenlemek ve sıralama algoritmalarını uygulamak için projede kullanılan temel yapıları temsil eder.
